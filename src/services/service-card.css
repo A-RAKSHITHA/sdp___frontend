@@ -1,0 +1,33 @@
+.service__item{
+    padding: 1rem;
+    border-bottom: 1px solid #faa83586;
+    border-right: 1px solid #faa83586;
+    border-radius: 0.5rem;
+}
+.service__img{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+.service__img img {
+    max-width: 80%;
+    max-height: 80%;
+}
+.service__item h5{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.service__item p{
+    font-size: .9rem;
+    color: var(--text-color);
+}
+.featured__tour-title{
+    font-size: 2.3rem;
+    font-weight: 500;
+}

@@ -13,6 +13,7 @@ const Register = () => {
     phone: undefined, // Added phone field
   });
 
+  const [error, setError] = useState('');
   const navigate = useNavigate(); // Initialize useNavigate
 
   const handleChange = (e) => {
@@ -27,6 +28,15 @@ const Register = () => {
     if (!phoneRegex.test(credentials.phone)) {
       alert('Please enter a valid phone number with exactly 10 digits.');
       return;
+    }
+
+    // Password validation regex
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(credentials.password)) {
+      setError('Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character.');
+      return;
+    } else {
+      setError('');
     }
 
     console.log(credentials);
@@ -91,6 +101,10 @@ const Register = () => {
                       onChange={handleChange}
                     />
                   </FormGroup>
+
+                  {/* Display error message if password validation fails */}
+                  {error && <p style={{ color: 'red' }}>{error}</p>}
+
                   <Button
                     className="btn secondary__btn auth__btn"
                     type="submit"
